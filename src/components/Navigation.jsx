@@ -49,10 +49,10 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
                     location.pathname === item.path
-                      ? 'bg-saffron text-deep-blue font-semibold'
-                      : 'text-white hover:text-saffron hover:bg-white/10'
+                      ? 'bg-gradient-to-r from-saffron to-gold text-deep-blue font-semibold shadow-glow'
+                      : 'text-white hover:text-saffron hover:bg-white/10 hover:shadow-md'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -65,7 +65,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-white hover:text-saffron transition-colors"
+            className="lg:hidden p-2 text-white hover:text-saffron transition-all duration-300 hover:scale-110 hover:bg-white/10 rounded-full"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -83,7 +83,7 @@ const Navigation = () => {
           >
             <div className="fixed inset-0 bg-black/80 backdrop-blur-md" onClick={() => setIsOpen(false)} />
             <motion.div
-              className="fixed right-0 top-0 h-full w-80 bg-gradient-to-b from-maroon to-deep-blue p-6 shadow-2xl"
+              className="fixed right-0 top-0 h-full w-80 bg-gradient-to-b from-maroon via-deep-blue to-slate-900 p-6 shadow-2xl border-l border-white/20"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -102,10 +102,10 @@ const Navigation = () => {
                       <Link
                         to={item.path}
                         onClick={() => setIsOpen(false)}
-                        className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 ${
+                        className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 hover:scale-105 ${
                           location.pathname === item.path
-                            ? 'bg-saffron text-deep-blue font-semibold'
-                            : 'text-white hover:bg-white/10'
+                            ? 'bg-gradient-to-r from-saffron to-gold text-deep-blue font-semibold shadow-glow'
+                            : 'text-white hover:bg-white/10 hover:shadow-md'
                         }`}
                       >
                         <Icon className="w-5 h-5" />

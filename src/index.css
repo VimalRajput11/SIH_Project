@@ -1,68 +1,178 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  a:hover {
-    color: #747bff;
+
+  html {
+    scroll-behavior: smooth;
   }
-  button {
-    background-color: #f9f9f9;
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    color: white;
+    overflow-x: hidden;
+    line-height: 1.6;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .mandala-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255, 153, 51, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+    background-size: 400px 400px;
+    animation: mandalaRotate 120s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .prayer-flags {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(
+      90deg,
+      #8B0000 0%,
+      #FF9933 20%,
+      #FFD700 40%,
+      #1E3A8A 60%,
+      #3B82F6 80%,
+      #8B0000 100%
+    );
+    opacity: 0.7;
+    animation: prayerFlagWave 8s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  .floating-btn {
+    @apply bg-gradient-to-r from-saffron to-gold border-none rounded-full px-6 py-3 font-medium text-deep-blue cursor-pointer transition-all duration-300 shadow-spiritual relative overflow-hidden;
+  }
+
+  .floating-btn:hover {
+    @apply transform -translate-y-1 shadow-glow;
+  }
+
+  .floating-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .floating-btn:hover::before {
+    left: 100%;
+  }
+
+  .monastery-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 transition-all duration-300 cursor-pointer;
+  }
+
+  .monastery-card:hover {
+    @apply transform -translate-y-2 bg-white/15 shadow-glow;
+  }
+
+  .glow-text {
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+
+  .scroll-reveal {
+    @apply opacity-0 transform translate-y-12 transition-all duration-700;
+  }
+
+  .scroll-reveal.revealed {
+    @apply opacity-100 transform translate-y-0;
+  }
+
+  .spiritual-loader {
+    @apply inline-block w-10 h-10 border-4 border-saffron/30 rounded-full border-t-saffron animate-spin;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
+  }
+
+  .bg-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .bg-glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #FF9933, #FFD700);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #FFD700, #FF9933);
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .floating-btn {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .monastery-card {
+    @apply p-4;
+  }
+}
+
+/* Animation keyframes */
+@keyframes mandalaRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes prayerFlagWave {
+  0%, 100% { transform: scaleY(1) translateY(0); }
+  50% { transform: scaleY(0.8) translateY(-5px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(255, 153, 51, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(255, 153, 51, 0.8); }
 }

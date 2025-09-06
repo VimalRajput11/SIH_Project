@@ -1,201 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
-:root {
-  --maroon: #8B0000;
-  --saffron: #FF9933;
-  --deep-blue: #1E3A8A;
-  --gold: #FFD700;
-  --white: #FFFFFF;
-  --light-gold: #FFF8DC;
-  --dark-maroon: #660000;
-  --light-blue: #3B82F6;
-  --gradient-primary: linear-gradient(135deg, var(--maroon) 0%, var(--deep-blue) 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--saffron) 0%, var(--gold) 100%);
-  --shadow-spiritual: 0 10px 25px rgba(139, 0, 0, 0.15);
-  --shadow-glow: 0 0 20px rgba(255, 153, 51, 0.3);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: var(--white);
-  overflow-x: hidden;
-  line-height: 1.6;
-}
+/* This file is now handled by Tailwind CSS and index.css */
+/* Keeping minimal styles for any custom components */
 
 .App {
   min-height: 100vh;
   position: relative;
 }
 
-/* Spiritual Typography */
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  line-height: 1.2;
+/* Enhanced spiritual elements */
+.prayer-wheel-spin {
+  animation: spin 10s linear infinite;
 }
 
-h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
+.lotus-bloom {
+  animation: bloom 4s ease-in-out infinite alternate;
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.2rem;
+@keyframes bloom {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.1) rotate(5deg); }
 }
 
-h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+/* Enhanced hover effects for interactive elements */
+.interactive-element {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Mandala Background Pattern */
-.mandala-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(255, 153, 51, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
-  background-size: 400px 400px;
-  animation: mandalaRotate 120s linear infinite;
-  pointer-events: none;
-  z-index: -1;
+.interactive-element:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.1);
 }
 
-@keyframes mandalaRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Prayer Flag Animation */
-.prayer-flags {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
+/* Spiritual gradient overlays */
+.spiritual-overlay {
   background: linear-gradient(
-    90deg,
-    var(--maroon) 0%,
-    var(--saffron) 20%,
-    var(--gold) 40%,
-    var(--deep-blue) 60%,
-    var(--light-blue) 80%,
-    var(--maroon) 100%
+    135deg,
+    rgba(139, 0, 0, 0.1) 0%,
+    rgba(255, 153, 51, 0.1) 50%,
+    rgba(30, 58, 138, 0.1) 100%
   );
-  opacity: 0.7;
-  animation: prayerFlagWave 8s ease-in-out infinite;
-  z-index: -1;
 }
 
-@keyframes prayerFlagWave {
-  0%, 100% { transform: scaleY(1) translateY(0); }
-  50% { transform: scaleY(0.8) translateY(-5px); }
+/* Enhanced card shadows */
+.enhanced-card {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 153, 51, 0.1);
 }
 
-/* Floating Action Buttons */
-.floating-btn {
-  background: var(--gradient-secondary);
-  border: none;
-  border-radius: 50px;
-  padding: 1.2rem 2rem;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  color: var(--deep-blue);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-spiritual);
-  position: relative;
-  overflow: hidden;
-}
-
-.floating-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-glow);
-}
-
-.floating-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.floating-btn:hover::before {
-  left: 100%;
-}
-
-/* Monastery Card Styles */
-.monastery-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 2rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.monastery-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: var(--shadow-glow);
-}
-
-/* Glow Effect */
-.glow-text {
-  text-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
-  
-  .floating-btn {
-    padding: 1rem 1.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Scroll Animations */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
-}
-
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Loading Spinner */
-.spiritual-loader {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(255, 153, 51, 0.3);
-  border-radius: 50%;
-  border-top-color: var(--saffron);
-  animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.enhanced-card:hover {
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(255, 153, 51, 0.2),
+    0 0 20px rgba(255, 153, 51, 0.3);
 }

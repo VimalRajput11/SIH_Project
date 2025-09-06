@@ -99,10 +99,10 @@ const LandingPage = () => {
           variants={heroVariants}
           initial="hidden"
           animate="visible"
-          className="mb-12"
+          className="mb-16"
         >
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-white glow-text mb-6"
+            className="text-6xl md:text-8xl font-bold text-white glow-text mb-8 font-serif"
             animate={{
               textShadow: [
                 "0 0 10px rgba(255, 153, 51, 0.5)",
@@ -115,7 +115,7 @@ const LandingPage = () => {
             Monastery360
           </motion.h1>
           <motion.p 
-            className="text-xl md:text-2xl text-light-gold max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-light-gold max-w-4xl mx-auto leading-relaxed font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
@@ -127,7 +127,7 @@ const LandingPage = () => {
 
         {/* Action Buttons */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-6 mb-16"
+          className="flex flex-wrap justify-center gap-8 mb-20"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
@@ -139,7 +139,7 @@ const LandingPage = () => {
               animate="visible"
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
-              className="floating-btn flex items-center space-x-3 text-lg"
+              className="floating-btn flex items-center space-x-3 text-lg px-8 py-4 shadow-xl"
             >
               <Camera className="w-6 h-6" />
               <span>Explore Virtual Tours</span>
@@ -154,7 +154,7 @@ const LandingPage = () => {
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
               transition={{ delay: 0.2 }}
-              className="floating-btn flex items-center space-x-3 text-lg"
+              className="floating-btn flex items-center space-x-3 text-lg px-8 py-4 shadow-xl"
             >
               <Calendar className="w-6 h-6" />
               <span>Discover Events</span>
@@ -169,7 +169,7 @@ const LandingPage = () => {
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
               transition={{ delay: 0.4 }}
-              className="floating-btn flex items-center space-x-3 text-lg"
+              className="floating-btn flex items-center space-x-3 text-lg px-8 py-4 shadow-xl"
             >
               <Archive className="w-6 h-6" />
               <span>Digital Archives</span>
@@ -179,14 +179,14 @@ const LandingPage = () => {
 
         {/* Scrolling Events Marquee */}
         <motion.div 
-          className="w-full max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-full py-4 px-8"
+          className="w-full max-w-4xl mx-auto bg-glass rounded-full py-6 px-8 border border-white/30"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
         >
           <motion.p 
             key={currentEvent}
-            className="text-lg text-center text-saffron font-semibold"
+            className="text-xl text-center text-saffron font-semibold tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -198,36 +198,48 @@ const LandingPage = () => {
 
         {/* Stats Section */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <div className="monastery-card text-center">
+          <motion.div 
+            className="monastery-card text-center enhanced-card"
+            whileHover={{ scale: 1.05, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
             <Globe className="w-12 h-12 text-saffron mx-auto mb-4" />
-            <h3 className="text-3xl font-bold text-gold mb-2">50+</h3>
-            <p className="text-light-gold">Sacred Monasteries</p>
-          </div>
-          <div className="monastery-card text-center">
+            <h3 className="text-4xl font-bold text-gold mb-3 font-serif">50+</h3>
+            <p className="text-light-gold text-lg">Sacred Monasteries</p>
+          </motion.div>
+          <motion.div 
+            className="monastery-card text-center enhanced-card"
+            whileHover={{ scale: 1.05, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
             <Users className="w-12 h-12 text-saffron mx-auto mb-4" />
-            <h3 className="text-3xl font-bold text-gold mb-2">10K+</h3>
-            <p className="text-light-gold">Virtual Visitors</p>
-          </div>
-          <div className="monastery-card text-center">
+            <h3 className="text-4xl font-bold text-gold mb-3 font-serif">10K+</h3>
+            <p className="text-light-gold text-lg">Virtual Visitors</p>
+          </motion.div>
+          <motion.div 
+            className="monastery-card text-center enhanced-card"
+            whileHover={{ scale: 1.05, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
             <Star className="w-12 h-12 text-saffron mx-auto mb-4" />
-            <h3 className="text-3xl font-bold text-gold mb-2">4.9/5</h3>
-            <p className="text-light-gold">User Rating</p>
-          </div>
+            <h3 className="text-4xl font-bold text-gold mb-3 font-serif">4.9/5</h3>
+            <p className="text-light-gold text-lg">User Rating</p>
+          </motion.div>
         </motion.div>
       </div>
 
       {/* Scroll Indicator */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-saffron rounded-full flex justify-center">
+        <div className="w-6 h-10 border-2 border-saffron rounded-full flex justify-center bg-black/20 backdrop-blur-sm">
           <motion.div 
             className="w-1 h-3 bg-saffron rounded-full mt-2"
             animate={{ opacity: [0, 1, 0] }}
