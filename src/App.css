@@ -1,16 +1,15 @@
-/* This file is now handled by Tailwind CSS and index.css */
-/* Keeping minimal styles for any custom components */
-
+/* Enhanced spiritual elements and animations */
 .App {
   min-height: 100vh;
   position: relative;
 }
 
-/* Enhanced spiritual elements */
+/* Prayer wheel spinning animation */
 .prayer-wheel-spin {
   animation: spin 10s linear infinite;
 }
 
+/* Lotus bloom animation */
 .lotus-bloom {
   animation: bloom 4s ease-in-out infinite alternate;
 }
@@ -54,4 +53,48 @@
     0 10px 10px -5px rgba(0, 0, 0, 0.04),
     0 0 0 1px rgba(255, 153, 51, 0.2),
     0 0 20px rgba(255, 153, 51, 0.3);
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Enhanced button styles */
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+button:focus {
+  outline: 2px solid rgba(255, 153, 51, 0.5);
+  outline-offset: 2px;
+}
+
+/* Image hover effects */
+img {
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Text selection styling */
+::selection {
+  background: rgba(255, 153, 51, 0.3);
+  color: white;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Focus states for accessibility */
+a:focus,
+button:focus {
+  outline: 2px solid #FF9933;
+  outline-offset: 2px;
 }
